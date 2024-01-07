@@ -58,7 +58,7 @@ class ChatsScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16.0),
-          ListViewWidget()
+          const ListViewWidget()
         ],
       ),
     );

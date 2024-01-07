@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
 import 'is_my_chat_icon.dart';
 
 class ContentsWidget extends StatelessWidget {
@@ -42,7 +43,7 @@ class ContentsWidget extends StatelessWidget {
       widgets.add(
         Text(
           '$peopleCount',
-          style: const TextStyle(fontSize: 16.0, color: Color(0xFF6A6B6D)),
+          style: const TextStyle(fontSize: 16.0, color: lightGrey),
         ),
       );
     }
@@ -53,7 +54,7 @@ class ContentsWidget extends StatelessWidget {
         const Icon(
           Icons.notifications_off,
           size: 16.0,
-          color: Color(0xFF6A6B6D),
+          color: lightGrey,
         ),
       );
     }
@@ -72,7 +73,7 @@ class ContentsWidget extends StatelessWidget {
           lastTalk,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: const TextStyle(color: Color(0xFF6A6B6D)),
+          style: const TextStyle(color: lightGrey),
         )
       ],
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
 import '../widgets/chats_icon.dart';
+import '../widgets/list_view_widget.dart';
 import '../widgets/open_chats_icon.dart';
 import 'chats_screen.dart';
 import 'etc_screen.dart';
@@ -24,13 +26,18 @@ class _MainScreenState extends State<MainScreen> {
     const EtcScreen()
   ];
   int _index = 1;
+  int totalUnreadCount = 0;
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      totalUnreadCount = ListViewWidget.getTotalUnreadCount();
+    });
+
     return Scaffold(
       body: SafeArea(child: _screens[_index]),
       bottomNavigationBar: SizedBox(
-        height: 64.0,
+        height: 66.0,
         child: BottomNavigationBar(
           onTap: (index) {
             setState(() {
@@ -38,25 +45,32 @@ class _MainScreenState extends State<MainScreen> {
             });
           },
           type: BottomNavigationBarType.fixed,
-          backgroundColor: const Color(0xFF181818),
+          backgroundColor: darkGrey,
           selectedItemColor: Colors.white,
           selectedFontSize: 10.0,
-          unselectedItemColor: const Color(0xFF6A6B6D),
+          unselectedItemColor: lightGrey,
           unselectedFontSize: 10.0,
+          iconSize: 28.0,
           currentIndex: _index,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person, size: 28.0),
+          items: [
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.person),
               label: '친구',
             ),
-            BottomNavigationBarItem(icon: ChatsIcon(), label: '채팅'),
-            BottomNavigationBarItem(icon: OpenChatsIcon(), label: '오픈채팅'),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag, size: 28.0),
+              icon: ChatsIcon(totalUnreadCount: totalUnreadCount),
+              label: '채팅',
+            ),
+            const BottomNavigationBarItem(
+              icon: OpenChatsIcon(),
+              label: '오픈채팅',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_bag),
               label: '쇼핑',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.more_horiz, size: 28.0),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz),
               label: '더보기',
             )
           ],

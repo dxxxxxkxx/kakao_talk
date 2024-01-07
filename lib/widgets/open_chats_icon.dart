@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class OpenChatsIcon extends StatelessWidget {
   const OpenChatsIcon({super.key});
 
@@ -19,7 +21,7 @@ class OpenChatsIcon extends StatelessWidget {
         const Positioned(
           bottom: 2.0,
           left: 2.0,
-          child: Icon(Icons.chat_bubble, size: 20.0, color: Color(0xFF181818)),
+          child: Icon(Icons.chat_bubble, size: 20.0, color: darkGrey),
         ),
         const Positioned(
           bottom: 0.0,

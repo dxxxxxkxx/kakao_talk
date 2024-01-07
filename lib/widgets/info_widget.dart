@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../colors.dart';
 import 'unread_count_badge.dart';
 
 class InfoWidget extends StatelessWidget {
@@ -49,7 +50,7 @@ class InfoWidget extends StatelessWidget {
       children: [
         Text(
           _formatDateTime(),
-          style: const TextStyle(fontSize: 12.0, color: Color(0xFF6A6B6D)),
+          style: const TextStyle(fontSize: 12.0, color: lightGrey),
         ),
         const SizedBox(height: 8.0),
         SizedBox(

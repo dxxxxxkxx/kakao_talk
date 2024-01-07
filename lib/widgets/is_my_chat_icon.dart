@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../colors.dart';
+
 class IsMyChatIcon extends StatelessWidget {
   const IsMyChatIcon({super.key});
 
@@ -7,7 +9,7 @@ class IsMyChatIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CircleAvatar(
       radius: 10.0,
-      backgroundColor: Color(0xFF6A6B6D),
+      backgroundColor: lightGrey,
       foregroundColor: Colors.white,
       child: Text(
         '나',

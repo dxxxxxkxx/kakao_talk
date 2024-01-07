@@ -7,9 +7,12 @@ import 'contents_widget.dart';
 import 'info_widget.dart';
 
 class ListViewWidget extends StatelessWidget {
-  final List<Chat> _chats = ChatsRepository().getChats();
+  static final List<Chat> _chats = ChatsRepository().getChats();
 
-  ListViewWidget({super.key});
+  const ListViewWidget({super.key});
+
+  static int getTotalUnreadCount() =>
+      _chats.fold(0, (sum, chat) => sum + chat.unreadCount);
 
   @override
   Widget build(BuildContext context) {

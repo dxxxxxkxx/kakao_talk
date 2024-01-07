@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 class UnreadCountBadge extends StatelessWidget {
   final int unreadCount;
+  final bool isTotalUnreadCount;
   final bool isGroupChat;
   final double padding;
-  final double largeSize;
 
   const UnreadCountBadge({
     super.key,
     required this.unreadCount,
+    this.isTotalUnreadCount = false,
     required this.isGroupChat,
-    this.padding = 2.0,
-    this.largeSize = 24.0,
+    this.padding = 6.0,
   });
 
   @override
@@ -19,15 +19,15 @@ class UnreadCountBadge extends StatelessWidget {
     if (unreadCount > 0) {
       final StringBuffer buffer = StringBuffer('');
 
-      if (isGroupChat) {
+      if (isGroupChat && !isTotalUnreadCount) {
         buffer.write('@ ');
       }
       buffer.write(unreadCount < 1000 ? '$unreadCount' : '999+');
 
       return Badge(
-        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        padding: EdgeInsets.symmetric(horizontal: padding),
         backgroundColor: Colors.deepOrangeAccent,
-        label: Text(buffer.toString()),
+        label: FittedBox(child: Text(buffer.toString())),
         textStyle: const TextStyle(height: 1.0),
       );
     }
